@@ -23,7 +23,7 @@
         <div class="flex items-center justify-between relative">
           <div class="px-4">
             <a href="#home" class="font-bold text-lg text-primary block py-5"
-              >RIO
+              >Port<span class="text-secondary">folio</span>
             </a>
           </div>
 
@@ -41,7 +41,7 @@
                     id="dark-toggle"
                   />
                   <div
-                    class="opacity-80 w-9 h-5 rounded-full ring-0 peer duration-500 outline-none bg-gray-200 overflow-hidden before:flex before:items-center before:justify-center after:flex after:items-center after:justify-center before:content-['☀️'] before:absolute before:h-4 before:w-4 before:top-1/2 before:bg-white before:rounded-full before:left-1 before:-translate-y-1/2 before:transition-all before:duration-700 peer-checked:before:opacity-0 peer-checked:before:rotate-90 peer-checked:before:-translate-y-full shadow-sm shadow-gray-400 peer-checked:shadow-sm peer-checked:shadow-gray-700 peer-checked:bg-[#383838] after:content-['🌑'] after:absolute after:bg-[#1d1d1d] after:rounded-full after:top-[1px] after:right-1 after:translate-y-full after:w-4 after:h-4 after:opacity-0 after:transition-all after:duration-700 peer-checked:after:opacity-100 peer-checked:after:rotate-180 peer-checked:after:translate-y-0"
+                    class="opacity-80 w-9 h-5 rounded-full ring-0 peer duration-500 outline-none bg-gray-200 overflow-hidden before:flex before:items-center before:justify-center after:flex after:items-center after:justify-center before:content-['☀️'] before:absolute before:h-4 before:w-4 before:top-1/2 before:bg-white before:rounded-full before:left-1 before:-translate-y-1/2 before:transition-all before:duration-700 peer-checked:before:opacity-0 peer-checked:before:rotate-180 peer-checked:before:-translate-y-full shadow-sm shadow-gray-400 peer-checked:shadow-sm peer-checked:shadow-gray-700 peer-checked:bg-[#383838] after:content-['🌒'] after:text-primary after:absolute after:bg-[#1d1d1d] after:rounded-full after:top-[1px] after:right-1 after:translate-y-full after:w-4 after:h-4 after:opacity-0 after:transition-all after:duration-700 peer-checked:after:opacity-100 peer-checked:after:rotate-180 peer-checked:after:translate-y-0"
                   ></div>
                 </label>
               </div>
@@ -71,21 +71,21 @@
                   <a
                     href="#home"
                     class="text-base text-dark py-2 mx-5 flex group-hover:text-primary dark:text-white"
-                    >Beranda</a
+                    >Home</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#about"
                     class="text-base text-dark py-2 mx-5 flex group-hover:text-primary dark:text-white"
-                    >Tentang Saya</a
+                    >About Me</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#portofolio"
                     class="text-base text-dark py-2 mx-5 flex group-hover:text-primary dark:text-white"
-                    >Portofolio</a
+                    >Project</a
                   >
                 </li>
                 <li class="group">
@@ -122,26 +122,36 @@
       <div class="container">
         <div class="flex flex-wrap">
           <div class="w-full self-center px-4 lg:w-1/2">
-            <h1 class="text-base font-semibold text-primary md:text-xl">
-              Halo Semua 👋, saya
-              <span
-                class="block font-bold text-4xl mt-1 text-dark lg:text-5xl dark:text-white"
-                >RIO</span
-              >
+            <h1 class="text-base font-semibold md:text-xl text-primary">
+              Hello 👋,
             </h1>
-            <h2 class="font-medium text-secondary text-lg mb-5 lg:text-2xl">
-              Android &
-              <span class="text-dark dark:text-white">Web Developer</span>
-            </h2>
-            <p class="font-medium text-secondary mb-10 leading-relaxed">
-              Ngoding itu seni, error itu tantangan, solusi itu tujuan. Jalani,
-              pecahkan, <span class="text-dark font-bold">tuntaskan!</span>
+            <h6 class="font-bold text-dark dark:text-white text-4xl">
+              I'm RIO,
+              <div class="hidden md:inline">
+                <h6 class="font-bold text-dark dark:text-white text-4xl">
+                  <span id="nama" class="text-dark dark:text-white">a</span>
+                  <span id="auto-typed" class="text-primary"> </span>
+                </h6>
+              </div>
+            </h6>
+
+            <div class="block md:hidden">
+              <h6 class="font-bold text-dark dark:text-white text-4xl">
+                <span id="nama" class="text-dark dark:text-white">a</span>
+                <span id="auto-type" class="text-primary"> </span>
+              </h6>
+            </div>
+
+            <p class="text-secondary font-medium mb-8 leading-relaxed">
+              Coding is an art, errors are challenges, and solutions are the
+              mission. Embrace the process, solve the problems, and achieve
+              <span class="font-bold text-dark dark:text-white">success.</span>
             </p>
 
             <a
-              href="#"
+              href="#contact"
               class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out"
-              >Hubungi Saya</a
+              >Contact Me!</a
             >
           </div>
           <div class="w-full self-end px-4 lg:w-1/2">
@@ -180,35 +190,34 @@
         <div class="flex flex-wrap">
           <div class="w-full px-4 mb-10 lg:w-1/2">
             <h4 class="font-bold uppercase text-primary text-lg mb-1">
-              Tentang Saya
+              About Me
             </h4>
             <h2
               class="font-bold text-dark text-3xl mb-2 max-w-md dark:text-white"
             >
-              Yuk, berkenalan!
+              Get to know me!
             </h2>
             <p class="font-medium text-base text-secondary max-w-xl">
-              Sebagai mahasiswa Manajemen Informatika, saya menekuni dunia
-              Android dan Web Development untuk mengembangkan solusi digital
-              yang inovatif. Dengan memadukan teori dan praktik, saya terus
-              mengeksplorasi teknologi untuk menciptakan aplikasi yang
-              bermanfaat dan berdampak nyata.
+              As an Informatics Management student, I specialize in Android and
+              Web Development to create innovative digital solutions. By
+              combining theory and practice, I continuously explore technology
+              to develop applications that are useful and impactful.
             </p>
           </div>
           <div class="w-full px-4 lg:w-1/2">
             <h3
               class="font-semibold text-dark text-2xl mb-1 lg:pt-10 dark:text-white"
             >
-              Mari berteman
+              Let’s Connect
             </h3>
             <p class="font-medium text-base text-secondary mb-6">
-              Mari terhubung dan berbagi insight seputar teknologi! Jangan ragu
-              untuk menghubungi saya di media sosial!
+              Stay connected and share insights about technology! Feel free to
+              reach out to me on social media!
             </p>
             <div class="flex items-center">
               <!-- icon ig -->
               <a
-                href="#"
+                href="https://www.instagram.com/justrio.24/"
                 target="_blank"
                 class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-secondary border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
               >
@@ -226,29 +235,33 @@
                 </svg>
               </a>
 
-              <!-- icon fb -->
+              <!-- icon Linkedin -->
               <a
-                href="#"
+                href="https://www.linkedin.com/in/rio-rio-86a687297/"
                 target="_blank"
                 class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-secondary border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
               >
                 <svg
-                  role="img"
                   width="20"
                   class="fill-current"
-                  viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="-143 145 512 512"
+                  xml:space="preserve"
                 >
-                  <title>Facebook</title>
                   <path
-                    d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"
+                    d="M113,145c-141.4,0-256,114.6-256,256s114.6,256,256,256s256-114.6,256-256S254.4,145,113,145z M41.4,508.1H-8.5V348.4h49.9
+             V508.1z M15.1,328.4h-0.4c-18.1,0-29.8-12.2-29.8-27.7c0-15.8,12.1-27.7,30.5-27.7c18.4,0,29.7,11.9,30.1,27.7
+             C45.6,316.1,33.9,328.4,15.1,328.4z M241,508.1h-56.6v-82.6c0-21.6-8.8-36.4-28.3-36.4c-14.9,0-23.2,10-27,19.6
+             c-1.4,3.4-1.2,8.2-1.2,13.1v86.3H71.8c0,0,0.7-146.4,0-159.7h56.1v25.1c3.3-11,21.2-26.6,49.8-26.6c35.5,0,63.3,23,63.3,72.4V508.1z
+             "
                   />
                 </svg>
               </a>
 
               <!-- icon github -->
               <a
-                href="#"
+                href="https://github.com/JustRio24"
                 target="_blank"
                 class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-secondary border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
               >
@@ -265,26 +278,6 @@
                   />
                 </svg>
               </a>
-
-              <!-- Gmail Icon -->
-              <a
-                href="#"
-                target="_blank"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-secondary border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
-              >
-                <svg
-                  role="img"
-                  width="20"
-                  class="fill-current"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Gmail</title>
-                  <path
-                    d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
-                  />
-                </svg>
-              </a>
             </div>
           </div>
         </div>
@@ -298,17 +291,17 @@
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
             <h4 class="font-semibold text-lg text-primary mb-2 uppercase">
-              Portofolio
+              Project
             </h4>
             <h2
               class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white"
             >
-              Project Terbaru
+              Latest Projects
             </h2>
             <p class="font-medium text-md text-secondary md:text-lg">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex
-              sapiente quibusdam in incidunt nobis harum iure voluptatum itaque
-              beatae delectus!
+              Here are some of the latest projects I have worked on. Each
+              project reflects my passion for technology and innovation in
+              Android and Web Development.
             </p>
           </div>
         </div>
@@ -317,74 +310,44 @@
         >
           <div class="mb-12 p-4 md:w-1/2">
             <div class="rounded-md shadow-md overflow-hidden">
-              <img
-                src="dist/img/portofolio/placeholder.png"
-                alt=""
-                width="w-full"
-              />
+              <img src="dist/img/portofolio/mid.png" alt="" width="w-full" />
             </div>
-            <h3
-              class="font-semibold text-dark text-xl mt-5 mb-3 dark:text-white"
+            <a
+              href="https://github.com/JustRio24/MiDClassApp"
+              target="_blank"
+              class="block font-semibold text-dark text-xl my-3 dark:text-white"
             >
-              Judul dari Project yg dibuat
-            </h3>
+              MiDClass App (Learning Management System)
+            </a>
             <p class="font-medium text-base text-secondary">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Nesciunt, aspernatur?
+              A mobile application that helps students and lecturers manage
+              academic activities efficiently. It offers features like
+              attendance tracking, class schedules, assignments, an academic
+              calendar, and user profiles—ensuring seamless organization and
+              monitoring of academic tasks.
             </p>
           </div>
           <div class="mb-12 p-4 md:w-1/2">
             <div class="rounded-md shadow-md overflow-hidden">
               <img
-                src="dist/img/portofolio/placeholder.png"
+                src="dist/img/portofolio/smartdrum.png"
                 alt=""
                 width="w-full"
               />
             </div>
-            <h3
-              class="font-semibold text-dark text-xl mt-5 mb-3 dark:text-white"
+            <a
+              href="https://github.com/JustRio24/SmartDrum-v2"
+              target="_blank"
+              class="font-semibold block text-dark text-xl my-3 dark:text-white"
             >
-              Judul dari Project yg dibuat
-            </h3>
+              SmartDrum (IoT Dashboard web-based)
+            </a>
             <p class="font-medium text-base text-secondary">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Nesciunt, aspernatur?
-            </p>
-          </div>
-          <div class="mb-12 p-4 md:w-1/2">
-            <div class="rounded-md shadow-md overflow-hidden">
-              <img
-                src="dist/img/portofolio/placeholder.png"
-                alt=""
-                width="w-full"
-              />
-            </div>
-            <h3
-              class="font-semibold text-dark text-xl mt-5 mb-3 dark:text-white"
-            >
-              Judul dari Project yg dibuat
-            </h3>
-            <p class="font-medium text-base text-secondary">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Nesciunt, aspernatur?
-            </p>
-          </div>
-          <div class="mb-12 p-4 md:w-1/2">
-            <div class="rounded-md shadow-md overflow-hidden">
-              <img
-                src="dist/img/portofolio/placeholder.png"
-                alt=""
-                width="w-full"
-              />
-            </div>
-            <h3
-              class="font-semibold text-dark text-xl mt-5 mb-3 dark:text-white"
-            >
-              Judul dari Project yg dibuat
-            </h3>
-            <p class="font-medium text-base text-secondary">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Nesciunt, aspernatur?
+              SmartDrum is an IoT-based system designed to monitor and automate
+              mushroom cultivation. It provides real-time tracking of
+              temperature, humidity, and water levels while enabling remote
+              control of the watering system. With SmartDrum, farmers can
+              optimize growing conditions efficiently and ensure better yields.
             </p>
           </div>
         </div>
@@ -403,11 +366,13 @@
             <h2
               class="font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-dark"
             >
-              Yang Pernah Bekerjasama
+              Collaborations & Partnerships
             </h2>
             <p class="font-medium text-md text-secondary md:text-lg">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus,
-              earum quo. Praesentium!
+              I have collaborated with institutions, organizations, and
+              professionals to develop innovative and impactful projects,
+              creating smart solutions that enhance efficiency and
+              sustainability.
             </p>
           </div>
         </div>
@@ -444,11 +409,11 @@
             <h2
               class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white"
             >
-              Tulisan Terkini!
+              Latest Articles!
             </h2>
             <p class="font-medium text-md text-secondary md:text-lg">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla
-              ullam repellat labore ex.
+              A collection of my latest articles on technology, IoT, and
+              software development, based on my experience and research.
             </p>
           </div>
         </div>
@@ -476,7 +441,7 @@
                   href="https://tech-odyssey.my.canva.site/knowledge"
                   target="_blank"
                   class="font-medium text-sm text-white bg-primary py-3 px-4 rounded-lg hover:opacity-80"
-                  >Baca Selengkapnya</a
+                  >Read more</a
                 >
               </div>
             </div>
@@ -508,7 +473,7 @@
                   href="https://tech-odyssey.my.canva.site/tips-and-trick"
                   target="_blank"
                   class="font-medium text-sm text-white bg-primary py-3 px-4 rounded-lg hover:opacity-80"
-                  >Baca Selengkapnya</a
+                  >Read more</a
                 >
               </div>
             </div>
@@ -540,7 +505,7 @@
                   href="https://tech-odyssey.my.canva.site/tutorial"
                   target="_blank"
                   class="font-medium text-sm text-white bg-primary py-3 px-4 rounded-lg hover:opacity-80"
-                  >Baca Selengkapnya</a
+                  >Read more</a
                 >
               </div>
             </div>
@@ -561,23 +526,24 @@
             <h2
               class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white"
             >
-              Hubungi Saya
+              Get in Touch
             </h2>
             <p class="font-medium text-md text-secondary md:text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
-              adipisci.
+              Feel free to reach out to me for any inquiries or collaborations.
+              I'm happy to connect with you.
             </p>
           </div>
         </div>
 
-        <form>
+        <form action="https://formspree.io/f/mjkyvozv" method="POST">
           <div class="w-full md::w-1/3 lg:mx-auto">
             <div class="w-full mb-8 px-4">
               <label for="name" class="text-base text-primary font-bold"
-                >Nama</label
+                >Name</label
               >
               <input
                 type="text"
+                name="name"
                 id="name"
                 class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
               />
@@ -587,26 +553,29 @@
                 >E-mail</label
               >
               <input
-                type="text"
+                type="email"
+                name="email"
                 id="email"
                 class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
               />
             </div>
             <div class="w-full mb-8 px-4">
-              <label for="pesan" class="text-base text-primary font-bold"
-                >Pesan</label
+              <label for="message" class="text-base text-primary font-bold"
+                >Message</label
               >
               <textarea
                 type="text"
-                id="pesan"
+                id="message"
+                name="message"
                 class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-32"
               ></textarea>
             </div>
             <div class="w-full px-4">
               <button
+                type="submit"
                 class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full w-full hover:opacity-80 hover:shadow-lg transition duration-500"
               >
-                Kirim
+                Submit
               </button>
             </div>
           </div>
@@ -633,49 +602,49 @@
             <ul class="text-slate-300">
               <li>
                 <a
-                  href="#"
+                  href="https://tech-odyssey.my.canva.site/tutorial"
                   class="inline-block text-base hover:text-primary mb-3"
-                  >Kategori 1</a
+                  >Tutorial</a
                 >
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://tech-odyssey.my.canva.site/tips-and-trick"
                   class="inline-block text-base hover:text-primary mb-3"
-                  >Kategori 2</a
+                  >Tips & Trick</a
                 >
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://tech-odyssey.my.canva.site/knowledge"
                   class="inline-block text-base hover:text-primary mb-3"
-                  >Kategori 3</a
+                  >Knowledge</a
                 >
               </li>
             </ul>
           </div>
           <div class="w-full px-4 mb-12 md:w-1/3">
-            <h3 class="font-semibold text-xl text-white mb-5">Tautan</h3>
+            <h3 class="font-semibold text-xl text-white mb-5">Link</h3>
             <ul class="text-slate-300">
               <li>
                 <a
                   href="#home"
                   class="inline-block text-base hover:text-primary mb-3"
-                  >Beranda</a
+                  >Home</a
                 >
               </li>
               <li>
                 <a
                   href="#about"
                   class="inline-block text-base hover:text-primary mb-3"
-                  >Tentang Saya</a
+                  >About Me</a
                 >
               </li>
               <li>
                 <a
                   href="#portofolio"
                   class="inline-block text-base hover:text-primary mb-3"
-                  >Portofolio</a
+                  >Project</a
                 >
               </li>
               <li>
@@ -811,5 +780,22 @@
     <!-- back to top -->
 
     <script src="dist/js/script.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+      var typed = new Typed("#auto-type", {
+        strings: ["Programmer", "Web Developer", "Android Developer"],
+        typeSpeed: 100,
+        backSpeed: 100,
+        looped: true,
+      });
+    </script>
+    <script>
+      var typed = new Typed("#auto-typed", {
+        strings: ["Programmer", "Web Developer", "Android Developer"],
+        typeSpeed: 100,
+        backSpeed: 100,
+        looped: true,
+      });
+    </script>
   </body>
 </html>

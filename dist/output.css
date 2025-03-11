@@ -648,10 +648,6 @@ video {
   top: 100%;
 }
 
-.-z-10 {
-  z-index: -10;
-}
-
 .z-10 {
   z-index: 10;
 }
@@ -673,6 +669,16 @@ video {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .mb-1 {
@@ -725,10 +731,6 @@ video {
 
 .mr-3 {
   margin-right: 0.75rem;
-}
-
-.mt-1 {
-  margin-top: 0.25rem;
 }
 
 .mt-10 {
@@ -1216,9 +1218,31 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+h6 {
+  display: flex;
+  gap: 8px;
+  /* Jarak antara teks dan span */
+  flex-wrap: wrap;
+}
+
+#nama {
+  display: inline;
+  /* Default: Inline di layar besar */
+}
+
+@media (max-width: 768px) {
+  /* Untuk layar HP */
+
+  #nama {
+    display: block;
+    /* Jadi block di layar kecil */
+  }
+}
+
 .navbar-fixed {
   position: fixed;
   z-index: 99999;
+  border-bottom-width: 0.01px;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
   --tw-bg-opacity: 0.7;
   --tw-backdrop-blur: blur(4px);
@@ -1227,6 +1251,8 @@ body {
 }
 
 .navbar-fixed:is(.dark *) {
+  --tw-border-opacity: 1;
+  border-color: rgb(30 41 59 / var(--tw-border-opacity, 1));
   background-color: rgb(15 23 42 / var(--tw-bg-opacity, 1));
   --tw-bg-opacity: 0.5;
 }
@@ -1397,6 +1423,12 @@ body {
   background-color: rgb(29 29 29 / var(--tw-bg-opacity, 1));
 }
 
+.after\:text-primary::after {
+  content: var(--tw-content);
+  --tw-text-opacity: 1;
+  color: rgb(6 182 212 / var(--tw-text-opacity, 1));
+}
+
 .after\:opacity-0::after {
   content: var(--tw-content);
   opacity: 0;
@@ -1414,8 +1446,8 @@ body {
   transition-duration: 700ms;
 }
 
-.after\:content-\[\'\1F311\'\]::after {
-  --tw-content: '🌑';
+.after\:content-\[\'\1F312\'\]::after {
+  --tw-content: '🌒';
   content: var(--tw-content);
 }
 
@@ -1516,9 +1548,9 @@ body {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.peer:checked ~ .peer-checked\:before\:rotate-90::before {
+.peer:checked ~ .peer-checked\:before\:rotate-180::before {
   content: var(--tw-content);
-  --tw-rotate: 90deg;
+  --tw-rotate: 180deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -1549,29 +1581,24 @@ body {
   background-color: rgb(15 23 42 / var(--tw-bg-opacity, 1));
 }
 
-.dark\:bg-slate-800:is(.dark *) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 41 59 / var(--tw-bg-opacity, 1));
-}
-
 .dark\:bg-slate-300:is(.dark *) {
   --tw-bg-opacity: 1;
   background-color: rgb(203 213 225 / var(--tw-bg-opacity, 1));
 }
 
-.dark\:bg-slate-700:is(.dark *) {
+.dark\:bg-slate-800:is(.dark *) {
   --tw-bg-opacity: 1;
-  background-color: rgb(51 65 85 / var(--tw-bg-opacity, 1));
-}
-
-.dark\:text-white:is(.dark *) {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  background-color: rgb(30 41 59 / var(--tw-bg-opacity, 1));
 }
 
 .dark\:text-dark:is(.dark *) {
   --tw-text-opacity: 1;
   color: rgb(15 23 42 / var(--tw-text-opacity, 1));
+}
+
+.dark\:text-white:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
 .dark\:shadow-slate-500:is(.dark *) {
@@ -1580,6 +1607,12 @@ body {
 }
 
 @media (min-width: 640px) {
+  .sm\:truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .sm\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
@@ -1587,8 +1620,12 @@ body {
 }
 
 @media (min-width: 768px) {
-  .md\:h-\[198px\] {
-    height: 198px;
+  .md\:inline {
+    display: inline;
+  }
+
+  .md\:hidden {
+    display: none;
   }
 
   .md\:w-1\/2 {
@@ -1597,6 +1634,12 @@ body {
 
   .md\:w-1\/3 {
     width: 33.333333%;
+  }
+
+  .md\:truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .md\:text-lg {
@@ -1657,18 +1700,6 @@ body {
     height: 198px;
   }
 
-  .lg\:h-\[19px\] {
-    height: 19px;
-  }
-
-  .lg\:h-\[250px\] {
-    height: 250px;
-  }
-
-  .lg\:h-\[25px\] {
-    height: 25px;
-  }
-
   .lg\:w-1\/2 {
     width: 50%;
   }
@@ -1697,11 +1728,6 @@ body {
 
   .lg\:pt-10 {
     padding-top: 2.5rem;
-  }
-
-  .lg\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
   }
 
   .lg\:text-5xl {

@@ -6,8 +6,25 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+h6 {
+  display: flex;
+  gap: 8px; /* Jarak antara teks dan span */
+  flex-wrap: wrap;
+}
+
+#nama {
+  display: inline; /* Default: Inline di layar besar */
+}
+
+@media (max-width: 768px) {
+  /* Untuk layar HP */
+  #nama {
+    display: block; /* Jadi block di layar kecil */
+  }
+}
+
 .navbar-fixed {
-  @apply fixed z-[99999] bg-white bg-opacity-70 backdrop-blur-sm dark:bg-dark dark:bg-opacity-50;
+  @apply fixed z-[99999] bg-white bg-opacity-70 backdrop-blur-sm dark:bg-dark dark:bg-opacity-50 border-b-[0.01px] dark:border-slate-800;
   box-shadow: inset 0 -1px 0 0 rgb(0, 0 0, 0.2);
 }
 

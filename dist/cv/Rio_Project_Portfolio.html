@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rio — Project Portfolio</title>
+  <style>
+    /* ===== Professional Portfolio Styles ===== */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.6;
+      color: #1e293b;
+      background: #f8fafc;
+    }
+
+    .page {
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 24mm;
+      background: #fff;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+
+    /* Print styles */
+    @media print {
+      body { background: #fff; }
+      .page { box-shadow: none; margin: 0; padding: 15mm 20mm; }
+      .no-print { display: none !important; }
+      .project-card { page-break-inside: avoid; }
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .name { font-size: 24pt; font-weight: 700; color: #0f172a; margin-bottom: 4px; letter-spacing: -0.02em; }
+    .title { font-size: 12pt; font-weight: 500; color: #0ea5e9; margin-bottom: 12px; }
+    .contact-info { font-size: 9.5pt; color: #64748b; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .contact-info a { color: #475569; text-decoration: none; font-weight: 500; }
+    .contact-info a:hover { color: #0ea5e9; }
+    
+    .section-title {
+      font-size: 14pt;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Project Cards */
+    .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .project-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      background: #fdfdfd;
+    }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .project-name {
+      font-size: 12pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .project-desc {
+      font-size: 10pt;
+      color: #475569;
+      margin-bottom: 12px;
+    }
+    
+    /* Tech Stack Tags */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .tag {
+      background: #f1f5f9;
+      color: #334155;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 8.5pt;
+      font-weight: 600;
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* Links */
+    .links-container {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .link-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 9.5pt;
+    }
+    .link-label {
+      font-weight: 600;
+      width: 75px;
+    }
+    .link-label.demo { color: #059669; }
+    .link-label.github { color: #2563eb; }
+    
+    .link-url {
+      color: #475569;
+      text-decoration: none;
+      font-family: 'Fira Code', monospace;
+      font-size: 8.5pt;
+      word-break: break-all;
+    }
+    .link-url:hover { text-decoration: underline; }
+
+    /* Print Button */
+    .print-bar {
+      text-align: center;
+      padding: 16px;
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .print-btn {
+      background: #0ea5e9;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      box-shadow: 0 2px 4px rgba(14, 165, 233, 0.2);
+    }
+    .print-btn:hover { background: #0284c7; }
+  </style>
+</head>
+<body>
+
+  <div class="print-bar no-print">
+    <button class="print-btn" onclick="window.print()">📥 Save as PDF / Print</button>
+  </div>
+
+  <div class="page">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="name">RIO</h1>
+      <div class="title">Web Developer & Android Developer</div>
+      <div class="contact-info">
+        <a href="mailto:justrio24@gmail.com">justrio24@gmail.com</a> •
+        <a href="https://github.com/JustRio24">github.com/JustRio24</a> •
+        <a href="https://www.linkedin.com/in/rio-rio-86a687297/">LinkedIn</a> •
+        Palembang, Indonesia
+      </div>
+    </header>
+
+    <h2 class="section-title">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+      Selected Projects Portfolio
+    </h2>
+
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">KONSTRA (RAP Project) — Contractor Management System</div>
+        </div>
+        <p class="project-desc">A progressive web application (PWA) designed to streamline contractor management, site operations, and project monitoring with offline-first capabilities for remote usage.</p>
+        <div class="tech-stack">
+          <span class="tag">React</span> <span class="tag">Tailwind CSS</span> <span class="tag">Vite</span> <span class="tag">Radix UI</span> <span class="tag">PWA</span>
+        </div>
+        <div class="links-container">
+          <div class="link-row">
+            <span class="link-label demo">● Live Demo</span>
+            <a class="link-url" href="https://rap-project-gamma.vercel.app" target="_blank">https://rap-project-gamma.vercel.app</a>
+          </div>
+          <div class="link-row">
+            <span class="link-label github">● GitHub</span>
+            <a class="link-url" href="https://github.com/JustRio24/RAP-Project" target="_blank">https://github.com/JustRio24/RAP-Project</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">Gobeng App</div>
+        </div>
+        <p class="project-desc">A modern, responsive web application built with React and Vite featuring a comprehensive role-based access control system (RBAC) and dynamic UI components.</p>
+        <div class="tech-stack">
+          <span class="tag">React</span> <span class="tag">Vite</span> <span class="tag">JavaScript</span> <span class="tag">RBAC</span>
+        </div>
+        <div class="links-container">
+          <div class="link-row">
+            <span class="link-label demo">● Live Demo</span>
+            <a class="link-url" href="https://gobeng.vercel.app/" target="_blank">https://gobeng.vercel.app/</a>
+          </div>
+          <div class="link-row">
+            <span class="link-label github">● GitHub</span>
+            <a class="link-url" href="https://github.com/JustRio24/Project-Gobeng" target="_blank">https://github.com/JustRio24/Project-Gobeng</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">Visit Palembang</div>
+        </div>
+        <p class="project-desc">A modern, responsive web application promoting the beauty, culture, and tourist attractions of Palembang. Created for a Web Design Competition.</p>
+        <div class="tech-stack">
+          <span class="tag">JavaScript</span> <span class="tag">HTML/CSS</span> <span class="tag">Web Design</span>
+        </div>
+        <div class="links-container">
+          <div class="link-row">
+            <span class="link-label demo">● Live Demo</span>
+            <a class="link-url" href="https://visit-palembang.vercel.app" target="_blank">https://visit-palembang.vercel.app</a>
+          </div>
+          <div class="link-row">
+            <span class="link-label github">● GitHub</span>
+            <a class="link-url" href="https://github.com/JustRio24/Visit-Palembang" target="_blank">https://github.com/JustRio24/Visit-Palembang</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">Sweetmelt Cookies</div>
+        </div>
+        <p class="project-desc">An interactive e-commerce website designed to showcase and sell premium artisan cookies, featuring product catalogs and a responsive design.</p>
+        <div class="tech-stack">
+          <span class="tag">JavaScript</span> <span class="tag">E-commerce</span> <span class="tag">Web Design</span>
+        </div>
+        <div class="links-container">
+          <div class="link-row">
+            <span class="link-label demo">● Live Demo</span>
+            <a class="link-url" href="https://sweet-melt-cookies.vercel.app/" target="_blank">https://sweet-melt-cookies.vercel.app/</a>
+          </div>
+          <div class="link-row">
+            <span class="link-label github">● GitHub</span>
+            <a class="link-url" href="https://github.com/JustRio24/Sweetmelt-Cookies-Website" target="_blank">https://github.com/JustRio24/Sweetmelt-Cookies-Website</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">SPECTRA Corporate Platform</div>
+        </div>
+        <p class="project-desc">Official internal corporate platform for PT. SatSet MerahPutih Indonesia, managing end-to-end workflows including field worker attendance and daily progress reporting.</p>
+        <div class="tech-stack">
+          <span class="tag">Laravel</span> <span class="tag">Blade</span> <span class="tag">PHP</span>
+        </div>
+        <div class="links-container">
+          <div class="link-row">
+            <span class="link-label github">● GitHub</span>
+            <a class="link-url" href="https://github.com/JustRio24/SatsetProject" target="_blank">https://github.com/JustRio24/SatsetProject</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">ERP Tempe 3 Puteri v2</div>
+        </div>
+        <p class="project-desc">A customized ERP system for an SME (UMKM). Integrates Inventory, Production, Sales (E-commerce), and Financial modules into a single centralized platform.</p>
+        <div class="tech-stack">
+          <span class="tag">Laravel</span> <span class="tag">Blade</span> <span class="tag">PHP</span> <span class="tag">ERP</span>
+        </div>
+        <div class="links-container">
+          <div class="link-row">
+            <span class="link-label github">● GitHub</span>
+            <a class="link-url" href="https://github.com/JustRio24/Erp-Tempe-v2" target="_blank">https://github.com/JustRio24/Erp-Tempe-v2</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 7 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">Payroll System HRIS</div>
+        </div>
+        <p class="project-desc">A comprehensive Human Resource Information System (HRIS) tailored for PT Panca Karya Utama, managing employee payroll, data, and attendance tracking.</p>
+        <div class="tech-stack">
+          <span class="tag">TypeScript</span> <span class="tag">HRIS</span> <span class="tag">Payroll</span>
+        </div>
+        <div class="links-container">
+          <div class="link-row">
+            <span class="link-label github">● GitHub</span>
+            <a class="link-url" href="https://github.com/JustRio24/Payroll-System" target="_blank">https://github.com/JustRio24/Payroll-System</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 8 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">SmartDrum — IoT Dashboard</div>
+        </div>
+        <p class="project-desc">An IoT-based system for automated mushroom cultivation. Features a web dashboard for real-time tracking of temperature, humidity, and water levels.</p>
+        <div class="tech-stack">
+          <span class="tag">IoT</span> <span class="tag">Arduino</span> <span class="tag">Web Dashboard</span>
+        </div>
+        <div class="links-container">
+          <div class="link-row">
+            <span class="link-label github">● GitHub</span>
+            <a class="link-url" href="https://github.com/JustRio24/SmartDrum-v2" target="_blank">https://github.com/JustRio24/SmartDrum-v2</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 9 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">MiDClass App — LMS Mobile</div>
+        </div>
+        <p class="project-desc">A native Android learning management application for students and lecturers. Features include attendance tracking, class schedules, assignments, and an academic calendar.</p>
+        <div class="tech-stack">
+          <span class="tag">Android</span> <span class="tag">Java</span> <span class="tag">Firebase</span> <span class="tag">LMS</span>
+        </div>
+        <div class="links-container">
+          <div class="link-row">
+            <span class="link-label github">● GitHub</span>
+            <a class="link-url" href="https://github.com/JustRio24/MiDClassApp" target="_blank">https://github.com/JustRio24/MiDClassApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 10 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">UMKM Mie Mercon Jawara</div>
+        </div>
+        <p class="project-desc">A full-featured e-commerce application built for a local SME business, providing product management, order processing, and an interactive shopping experience.</p>
+        <div class="tech-stack">
+          <span class="tag">Laravel</span> <span class="tag">Blade</span> <span class="tag">E-commerce</span>
+        </div>
+        <div class="links-container">
+          <div class="link-row">
+            <span class="link-label github">● GitHub</span>
+            <a class="link-url" href="https://github.com/JustRio24/umkm_V1.1.2" target="_blank">https://github.com/JustRio24/umkm_V1.1.2</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 11 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">SIMAMANG — Internship Management</div>
+        </div>
+        <p class="project-desc">A web application to digitalize student internship application processes at POLSRI, streamlining workflows for students, supervisors, and administrators.</p>
+        <div class="tech-stack">
+          <span class="tag">Laravel</span> <span class="tag">PHP</span> <span class="tag">Blade</span>
+        </div>
+        <div class="links-container">
+          <div class="link-row">
+            <span class="link-label github">● GitHub</span>
+            <a class="link-url" href="https://github.com/JustRio24/SIMAMANG_v2" target="_blank">https://github.com/JustRio24/SIMAMANG_v2</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

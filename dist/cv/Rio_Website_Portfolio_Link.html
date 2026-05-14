@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rio — Portfolio Link</title>
+  <style>
+    /* ===== Professional Cover Styles ===== */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1e293b;
+      background: #f8fafc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .page {
+      width: 210mm;
+      height: 297mm;
+      margin: 20px auto;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40mm 30mm;
+      overflow: hidden;
+    }
+
+    /* Print styles */
+    @media print {
+      body { background: #fff; margin: 0; }
+      .page { box-shadow: none; margin: 0; width: 100%; height: 100vh; padding: 0 20mm; justify-content: center; }
+      .no-print { display: none !important; }
+    }
+
+    /* Decorative background shapes */
+    .bg-shape-1 {
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(135deg, rgba(14,165,233,0.1), rgba(14,165,233,0.02));
+      border-radius: 50%;
+      z-index: 0;
+    }
+    .bg-shape-2 {
+      position: absolute;
+      bottom: -100px;
+      left: -50px;
+      width: 400px;
+      height: 400px;
+      background: linear-gradient(135deg, rgba(241,245,249,1), rgba(226,232,240,0.5));
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    /* Content */
+    .content-wrapper {
+      position: relative;
+      z-index: 10;
+      max-width: 600px;
+    }
+
+    .icon-container {
+      width: 80px;
+      height: 80px;
+      background: #f0f9ff;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 30px;
+      color: #0ea5e9;
+      box-shadow: 0 4px 20px rgba(14,165,233,0.15);
+    }
+
+    .name {
+      font-size: 16pt;
+      font-weight: 600;
+      color: #64748b;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .title {
+      font-size: 32pt;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.2;
+      margin-bottom: 25px;
+      letter-spacing: -0.02em;
+    }
+
+    .description {
+      font-size: 12pt;
+      line-height: 1.8;
+      color: #475569;
+      margin-bottom: 45px;
+    }
+
+    /* The Link Box */
+    .link-box {
+      background: #fff;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 25px 30px;
+      margin-bottom: 40px;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+    }
+    
+    .link-box-title {
+      font-size: 10pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 10px;
+      letter-spacing: 0.05em;
+    }
+
+    .actual-link {
+      display: inline-block;
+      font-size: 14pt;
+      font-weight: 700;
+      color: #0ea5e9;
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .actual-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer / Contact */
+    .footer-info {
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 10.5pt;
+      color: #64748b;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .footer-info a { color: #475569; text-decoration: none; font-weight: 500; }
+
+    /* Print Button */
+    .print-bar {
+      width: 100%;
+      text-align: center;
+      padding: 16px;
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+    .print-btn {
+      background: #0ea5e9;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      box-shadow: 0 2px 4px rgba(14, 165, 233, 0.2);
+    }
+    .print-btn:hover { background: #0284c7; }
+  </style>
+</head>
+<body>
+
+  <div class="print-bar no-print">
+    <button class="print-btn" onclick="window.print()">📥 Save as PDF / Print</button>
+  </div>
+
+  <div class="page" style="margin-top: 80px;">
+    <!-- Decorative Shapes -->
+    <div class="bg-shape-1"></div>
+    <div class="bg-shape-2"></div>
+
+    <div class="content-wrapper">
+      
+      <div class="icon-container">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+          <line x1="8" y1="21" x2="16" y2="21"></line>
+          <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+      </div>
+
+      <div class="name">Rio</div>
+      <h1 class="title">Interactive Web Portfolio</h1>
+      
+      <p class="description">
+        Thank you for reviewing my application. As a Web & Android Developer, my portfolio is fully interactive and best experienced directly in your web browser. It features live demonstrations, detailed project descriptions, and interactive UI/UX components.
+      </p>
+
+      <div class="link-box">
+        <div class="link-box-title">Access the live portfolio here:</div>
+        <a class="actual-link" href="https://justrio24.github.io/portofolio-tailwind-css/" target="_blank">
+          justrio24.github.io/portofolio-tailwind-css
+        </a>
+      </div>
+
+      <p style="font-size: 10pt; color: #94a3b8; font-style: italic;">
+        (Click the link above if viewing this document digitally, or type the URL into your browser)
+      </p>
+
+      <div class="footer-info">
+        <a href="mailto:justrio24@gmail.com">justrio24@gmail.com</a>
+        <span>|</span>
+        <a href="https://github.com/JustRio24">github.com/JustRio24</a>
+        <span>|</span>
+        <a href="https://www.linkedin.com/in/rio-rio-86a687297/">LinkedIn</a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

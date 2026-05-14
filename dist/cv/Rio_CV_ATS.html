@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rio — Curriculum Vitae</title>
+  <style>
+    /* ===== ATS-Friendly CV Styles ===== */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.55;
+      color: #1a1a1a;
+      background: #f5f5f5;
+    }
+
+    .cv-page {
+      max-width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 28mm 24mm 20mm;
+      background: #fff;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    }
+
+    /* Print styles */
+    @media print {
+      body { background: #fff; }
+      .cv-page { box-shadow: none; margin: 0; padding: 18mm 20mm 15mm; }
+      .no-print { display: none !important; }
+    }
+
+    /* Header */
+    .cv-header { text-align: center; margin-bottom: 18px; border-bottom: 2px solid #1a1a1a; padding-bottom: 14px; }
+    .cv-name { font-size: 22pt; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: #111; margin-bottom: 2px; }
+    .cv-title { font-size: 11pt; font-weight: 500; color: #444; margin-bottom: 8px; }
+    .cv-contact { font-size: 9pt; color: #333; }
+    .cv-contact a { color: #333; text-decoration: none; }
+    .cv-contact span { margin: 0 6px; color: #aaa; }
+
+    /* Section */
+    .cv-section { margin-bottom: 16px; }
+    .cv-section-title {
+      font-size: 11pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-bottom: 1.5px solid #333;
+      padding-bottom: 3px;
+      margin-bottom: 8px;
+      color: #111;
+    }
+
+    /* Entries */
+    .cv-entry { margin-bottom: 10px; }
+    .cv-entry-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
+    .cv-entry-title { font-weight: 700; font-size: 10.5pt; }
+    .cv-entry-date { font-size: 9pt; color: #555; font-style: italic; white-space: nowrap; }
+    .cv-entry-subtitle { font-weight: 500; font-size: 10pt; color: #444; }
+    .cv-entry-location { font-size: 9pt; color: #666; }
+    
+    .cv-entry ul { margin-left: 18px; margin-top: 3px; }
+    .cv-entry li { margin-bottom: 2px; font-size: 10pt; }
+    .cv-entry p { font-size: 10pt; margin-top: 2px; }
+
+    /* Skills */
+    .cv-skills-grid { display: flex; flex-wrap: wrap; gap: 2px 0; }
+    .cv-skill-cat { width: 100%; margin-bottom: 4px; font-size: 10pt; }
+    .cv-skill-cat strong { font-weight: 600; }
+
+    /* Projects grid */
+    .cv-project { margin-bottom: 8px; }
+    .cv-project-title { font-weight: 700; font-size: 10pt; }
+    .cv-project-tech { font-size: 9pt; color: #555; font-style: italic; }
+    .cv-project p { font-size: 9.5pt; margin-top: 1px; }
+
+    /* Print button */
+    .print-bar {
+      text-align: center;
+      padding: 16px;
+      background: #f5f5f5;
+    }
+    .print-btn {
+      background: #06b6d4;
+      color: #fff;
+      border: none;
+      padding: 10px 32px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+    .print-btn:hover { background: #0891b2; }
+  </style>
+</head>
+<body>
+
+  <div class="print-bar no-print">
+    <button class="print-btn" onclick="window.print()">📄 Save as PDF / Print</button>
+  </div>
+
+  <div class="cv-page">
+    <!-- HEADER -->
+    <header class="cv-header">
+      <h1 class="cv-name">RIO</h1>
+      <p class="cv-title">Web Developer &amp; Android Developer</p>
+      <p class="cv-contact">
+        Palembang, Indonesia
+        <span>|</span>
+        <a href="mailto:justrio24@gmail.com">justrio24@gmail.com</a>
+        <span>|</span>
+        <a href="https://github.com/JustRio24">github.com/JustRio24</a>
+        <span>|</span>
+        <a href="https://www.linkedin.com/in/rio-rio-86a687297/">LinkedIn</a>
+      </p>
+    </header>
+
+    <!-- PROFESSIONAL SUMMARY -->
+    <section class="cv-section">
+      <h2 class="cv-section-title">Professional Summary</h2>
+      <p style="font-size:10pt;">
+        Informatics Management student with hands-on experience in full-stack web development and Android application development. Proficient in building responsive web applications using Laravel, React, Next.js, and Tailwind CSS, as well as native Android apps with Java and Firebase. Passionate about creating innovative digital solutions that solve real-world problems. Experienced in IoT-based systems, ERP development, and progressive web applications (PWA).
+      </p>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="cv-section">
+      <h2 class="cv-section-title">Education</h2>
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <span class="cv-entry-title">Politeknik Negeri Sriwijaya (POLSRI)</span>
+          <span class="cv-entry-date">2023 — Present</span>
+        </div>
+        <div class="cv-entry-subtitle">D-III Manajemen Informatika (Informatics Management)</div>
+        <div class="cv-entry-location">Palembang, South Sumatra, Indonesia</div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS -->
+    <section class="cv-section">
+      <h2 class="cv-section-title">Technical Skills</h2>
+      <div class="cv-skills-grid">
+        <div class="cv-skill-cat"><strong>Languages:</strong> JavaScript, TypeScript, PHP, Python, Java, HTML5, CSS3, SQL</div>
+        <div class="cv-skill-cat"><strong>Frontend:</strong> React, Next.js, Tailwind CSS, Bootstrap, Vite</div>
+        <div class="cv-skill-cat"><strong>Backend:</strong> Laravel, Node.js, REST API</div>
+        <div class="cv-skill-cat"><strong>Mobile:</strong> Android (Java), Progressive Web Apps (PWA)</div>
+        <div class="cv-skill-cat"><strong>Database:</strong> MySQL, Firebase Realtime Database, Firestore</div>
+        <div class="cv-skill-cat"><strong>Tools:</strong> Git, GitHub, VS Code, Arduino IDE, Figma</div>
+        <div class="cv-skill-cat"><strong>Other:</strong> IoT (Arduino), IT Support, Responsive Design, SEO</div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="cv-section">
+      <h2 class="cv-section-title">Projects</h2>
+
+      <div class="cv-project">
+        <div class="cv-entry-header">
+          <span class="cv-project-title">KONSTRA — Contractor Management System (PWA)</span>
+          <span class="cv-project-tech">React, Tailwind CSS, Vite, Radix UI</span>
+        </div>
+        <p>Built a progressive web application for streamlining contractor management, site operations, and project monitoring with offline-first capabilities for remote usage.</p>
+      </div>
+
+      <div class="cv-project">
+        <div class="cv-entry-header">
+          <span class="cv-project-title">SPECTRA — Corporate Operations Platform</span>
+          <span class="cv-project-tech">Laravel, Blade, PHP</span>
+        </div>
+        <p>Developed an internal corporate platform for PT. SatSet MerahPutih Indonesia managing end-to-end workflows including field worker attendance, daily progress reporting, and multi-role dashboards.</p>
+      </div>
+
+      <div class="cv-project">
+        <div class="cv-entry-header">
+          <span class="cv-project-title">Payroll System HRIS</span>
+          <span class="cv-project-tech">TypeScript, HRIS</span>
+        </div>
+        <p>Comprehensive payroll and attendance management system (HRIS) for PT Panca Karya Utama, handling employee data, salary calculations, and attendance tracking.</p>
+      </div>
+
+      <div class="cv-project">
+        <div class="cv-entry-header">
+          <span class="cv-project-title">ERP Tempe 3 Puteri v2</span>
+          <span class="cv-project-tech">Laravel, PHP, Blade</span>
+        </div>
+        <p>Custom ERP system for UMKM Tempe 3 Puteri integrating inventory management, production tracking, and financial reporting modules.</p>
+      </div>
+
+      <div class="cv-project">
+        <div class="cv-entry-header">
+          <span class="cv-project-title">SmartDrum — IoT Dashboard Web-Based</span>
+          <span class="cv-project-tech">IoT, Arduino, Web</span>
+        </div>
+        <p>IoT-based monitoring system for automated mushroom cultivation, providing real-time tracking of temperature, humidity, and water levels with web dashboard visualization.</p>
+      </div>
+
+      <div class="cv-project">
+        <div class="cv-entry-header">
+          <span class="cv-project-title">MiDClass App — Learning Management System</span>
+          <span class="cv-project-tech">Android, Java, Firebase</span>
+        </div>
+        <p>Mobile application helping students and lecturers manage academic activities including attendance tracking, academic calendar, and user profiles.</p>
+      </div>
+
+      <div class="cv-project">
+        <div class="cv-entry-header">
+          <span class="cv-project-title">Visit Palembang — Tourism Web App</span>
+          <span class="cv-project-tech">JavaScript, HTML/CSS, React</span>
+        </div>
+        <p>Modern, responsive web application promoting the beauty, culture, and tourist attractions of Palembang with interactive UI and optimized performance.</p>
+      </div>
+
+      <div class="cv-project">
+        <div class="cv-entry-header">
+          <span class="cv-project-title">Sweetmelt Cookies — E-commerce Website</span>
+          <span class="cv-project-tech">JavaScript, E-commerce</span>
+        </div>
+        <p>E-commerce website for showcasing and selling artisan cookies with product catalog, cart functionality, and responsive design.</p>
+      </div>
+
+      <div class="cv-project">
+        <div class="cv-entry-header">
+          <span class="cv-project-title">Gobeng App</span>
+          <span class="cv-project-tech">React, Vite</span>
+        </div>
+        <p>Modern, responsive web application built with React and Vite featuring dynamic UI components and optimized performance.</p>
+      </div>
+
+      <div class="cv-project">
+        <div class="cv-entry-header">
+          <span class="cv-project-title">SIMAMANG v2 — Internship Management System</span>
+          <span class="cv-project-tech">Laravel, PHP, Blade</span>
+        </div>
+        <p>Web application to digitalize student internship application processes at POLSRI, streamlining workflows for students, supervisors, and administrators.</p>
+      </div>
+
+      <div class="cv-project">
+        <div class="cv-entry-header">
+          <span class="cv-project-title">UMKM Mie Mercon Jawara — E-commerce</span>
+          <span class="cv-project-tech">Laravel, Blade</span>
+        </div>
+        <p>Full-featured e-commerce application for local UMKM business with product management, order processing, and interactive shopping experience.</p>
+      </div>
+    </section>
+
+    <!-- LANGUAGES -->
+    <section class="cv-section">
+      <h2 class="cv-section-title">Languages</h2>
+      <p style="font-size:10pt;"><strong>Indonesian</strong> — Native &nbsp;&nbsp;|&nbsp;&nbsp; <strong>English</strong> — Intermediate</p>
+    </section>
+
+  </div>
+
+</body>
+</html>

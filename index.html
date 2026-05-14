@@ -3,8 +3,339 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portofolio RIO</title>
+    <title>RIO — Android &amp; Web Developer Portfolio</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="RIO is an Informatics Management student from Palembang specializing in Android and Web Development. Explore projects, skills, and tech articles." />
+    <meta name="author" content="RIO" />
+    <meta name="keywords" content="portfolio, web developer, android developer, informatics, RIO, Palembang" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="RIO — Android &amp; Web Developer Portfolio" />
+    <meta property="og:description" content="Informatics Management student specializing in Android and Web Development. Based in Palembang, Indonesia." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="dist/img/photos.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="RIO — Android &amp; Web Developer Portfolio" />
+    <meta name="twitter:description" content="Informatics Management student specializing in Android and Web Development." />
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Devicon -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+    <!-- Main Styles -->
     <link href="dist/css/final.css" rel="stylesheet" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <style>
+      html, body { overflow-x: hidden; }
+      * { font-family: 'Poppins', sans-serif; }
+
+      /* ---- Active Nav Link ---- */
+      .nav-link.active { color: #06b6d4 !important; font-weight: 600; }
+
+      /* ---- Hero Animations ---- */
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(28px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .hero-1 { animation: fadeInUp 0.6s ease 0.1s both; }
+      .hero-2 { animation: fadeInUp 0.6s ease 0.25s both; }
+      .hero-3 { animation: fadeInUp 0.6s ease 0.4s both; }
+      .hero-4 { animation: fadeInUp 0.6s ease 0.55s both; }
+
+      /* ---- Blob float ---- */
+      @keyframes blobFloat {
+        0%, 100% { transform: translate(100px, 100px) scale(1.1); }
+        50%       { transform: translate(100px, 100px) scale(1.18) rotate(8deg); }
+      }
+      .blob-anim { animation: blobFloat 7s ease-in-out infinite; }
+
+      /* ---- Marquee Skills ---- */
+      .marquee-wrapper {
+        position: relative;
+        display: flex;
+        overflow: hidden;
+        user-select: none;
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+      }
+      .marquee-wrapper::before,
+      .marquee-wrapper::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 120px;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .marquee-wrapper::before { left: 0; background: linear-gradient(to right, #334155, transparent); }
+      .marquee-wrapper::after { right: 0; background: linear-gradient(to left, #334155, transparent); }
+      .dark .marquee-wrapper::before { background: linear-gradient(to right, #cbd5e1, transparent); }
+      .dark .marquee-wrapper::after { background: linear-gradient(to left, #cbd5e1, transparent); }
+
+      .marquee-content {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        animation: scrollX 28s linear infinite;
+      }
+      .marquee-wrapper:hover .marquee-content { animation-play-state: paused; }
+      @keyframes scrollX {
+        from { transform: translateX(0); }
+        to { transform: translateX(calc(-100% - 1.5rem)); }
+      }
+
+      .skill-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 20px;
+        border-radius: 100px;
+        border: 1px solid rgba(255,255,255,0.1);
+        background: rgba(255,255,255,0.05);
+        backdrop-filter: blur(8px);
+        white-space: nowrap;
+        cursor: default;
+        transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+        filter: grayscale(100%);
+        opacity: 0.55;
+      }
+      .skill-item:hover {
+        filter: grayscale(0%);
+        opacity: 1;
+        border-color: rgba(6,182,212,0.5);
+        background: rgba(6,182,212,0.08);
+        box-shadow: 0 0 20px rgba(6,182,212,0.15);
+        transform: translateY(-2px);
+      }
+      .skill-item i { font-size: 1.6rem; line-height: 1; flex-shrink: 0; }
+      .skill-item span { font-weight: 600; font-size: 0.875rem; color: #e2e8f0; letter-spacing: 0.02em; }
+      .dark .skill-item span { color: #334155; }
+      .dark .skill-item { border-color: rgba(0,0,0,0.12); background: rgba(0,0,0,0.06); }
+      .dark .skill-item:hover { border-color: rgba(6,182,212,0.5); background: rgba(6,182,212,0.08); }
+
+      /* ---- Projects Marquee ---- */
+      .projects-marquee-wrapper {
+        position: relative;
+        overflow: hidden;
+        user-select: none;
+        padding: 2rem 0;
+        width: 100%;
+        cursor: grab;
+      }
+      .projects-marquee-wrapper:active { cursor: grabbing; }
+      .projects-marquee-wrapper::before,
+      .projects-marquee-wrapper::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 80px;
+        height: 100%;
+        z-index: 4;
+        pointer-events: none;
+      }
+      .projects-marquee-wrapper::before { left: 0; background: linear-gradient(to right, #f1f5f9, transparent); }
+      .projects-marquee-wrapper::after { right: 0; background: linear-gradient(to left, #f1f5f9, transparent); }
+      .dark .projects-marquee-wrapper::before { background: linear-gradient(to right, #1e293b, transparent); }
+      .dark .projects-marquee-wrapper::after { background: linear-gradient(to left, #1e293b, transparent); }
+
+      .projects-marquee-track {
+        display: flex;
+        gap: 24px;
+        will-change: transform;
+      }
+
+      /* ---- Project Cards (Carousel) ---- */
+      .project-card {
+        width: 360px;
+        flex-shrink: 0;
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.04);
+        transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+        border: 1px solid #e8edf3;
+        display: flex;
+        flex-direction: column;
+        filter: grayscale(100%);
+        opacity: 0.6;
+      }
+      .dark .project-card {
+        background: #1e293b;
+        border-color: #2d3f56;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+      }
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 24px 56px rgba(6,182,212,0.18), 0 4px 16px rgba(0,0,0,0.08);
+        border-color: rgba(6,182,212,0.25);
+        filter: grayscale(0%);
+        opacity: 1;
+      }
+
+      /* Image Slider */
+      .proj-slider {
+        position: relative;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0c2545 100%);
+        flex-shrink: 0;
+      }
+      /* Beautiful placeholder for missing images */
+      .proj-slide img[src*="placeholder"] {
+        opacity: 0.3;
+        filter: saturate(0);
+      }
+      .proj-slider-track { display: flex; height: 100%; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
+      .proj-slide { flex-shrink: 0; width: 100%; height: 100%; }
+      .proj-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+      /* Gradient overlay on images */
+      .proj-slider::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(15,23,42,0.6) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* Arrows */
+      .proj-arrow {
+        position: absolute; top: 50%; transform: translateY(-50%);
+        background: rgba(255,255,255,0.15); backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.2); border-radius: 50%;
+        width: 34px; height: 34px;
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer; z-index: 6;
+        opacity: 0; transition: all 0.25s ease;
+        color: #fff; font-size: 1.1rem;
+      }
+      .proj-slider:hover .proj-arrow { opacity: 1; }
+      .proj-arrow.prev { left: 10px; }
+      .proj-arrow.next { right: 10px; }
+      .proj-arrow:hover { background: #06b6d4; border-color: #06b6d4; transform: translateY(-50%) scale(1.1); }
+
+      /* Dots */
+      .proj-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; z-index: 6; }
+      .proj-dot {
+        width: 5px; height: 5px; border-radius: 50%;
+        background: rgba(255,255,255,0.45); border: none; cursor: pointer; padding: 0;
+        transition: all 0.3s ease;
+      }
+      .proj-dot.active { background: #06b6d4; width: 20px; border-radius: 50px; }
+
+      /* Image counter badge */
+      .proj-counter {
+        position: absolute; top: 10px; right: 10px;
+        background: rgba(0,0,0,0.45); backdrop-filter: blur(6px);
+        color: rgba(255,255,255,0.85); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em;
+        padding: 3px 9px; border-radius: 20px; z-index: 6;
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+
+      /* Card body */
+      .project-body { padding: 20px 22px 22px; flex: 1; display: flex; flex-direction: column; }
+      .project-title {
+        font-weight: 700; font-size: 1rem; color: #0f172a;
+        margin-bottom: 6px; line-height: 1.45;
+      }
+      .dark .project-title { color: #f1f5f9; }
+      .project-desc {
+        font-size: 0.82rem; color: #64748b; line-height: 1.65;
+        margin-bottom: 14px; flex: 1;
+        display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+      }
+      .dark .project-desc { color: #94a3b8; }
+      .project-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; }
+      .project-tag {
+        font-size: 0.68rem; font-weight: 700; padding: 3px 9px;
+        border-radius: 20px; background: #f0fdff; color: #0891b2;
+        border: 1px solid #bae6fd; letter-spacing: 0.03em;
+      }
+      .dark .project-tag { background: rgba(8,145,178,0.12); border-color: rgba(8,145,178,0.3); color: #38bdf8; }
+      .project-actions { display: flex; gap: 8px; margin-top: auto; }
+      .proj-btn {
+        flex: 1; text-align: center; text-decoration: none;
+        padding: 9px 14px; border-radius: 10px; font-weight: 600; font-size: 0.8rem;
+        transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+        letter-spacing: 0.02em;
+      }
+      .proj-btn-primary {
+        background: linear-gradient(135deg, #06b6d4, #0891b2);
+        color: #fff;
+        box-shadow: 0 2px 12px rgba(6,182,212,0.35);
+      }
+      .proj-btn-primary:hover {
+        background: linear-gradient(135deg, #0891b2, #0e7490);
+        box-shadow: 0 4px 20px rgba(6,182,212,0.5);
+        transform: translateY(-1px);
+      }
+      .proj-btn-outline {
+        border: 1.5px solid #cbd5e1; color: #475569; background: transparent;
+      }
+      .proj-btn-outline:hover { border-color: #06b6d4; color: #06b6d4; background: rgba(6,182,212,0.06); transform: translateY(-1px); }
+      .dark .proj-btn-outline { border-color: #334155; color: #94a3b8; }
+      .dark .proj-btn-outline:hover { border-color: #06b6d4; color: #06b6d4; background: rgba(6,182,212,0.08); }
+
+      /* ---- Outline Button (CV Download) ---- */
+      .btn-outline {
+        border: 2px solid #06b6d4; color: #06b6d4; background: transparent;
+        padding: 10px 28px; border-radius: 50px; font-weight: 600; font-size: 0.9rem;
+        text-decoration: none; display: inline-block; transition: all 0.3s ease;
+      }
+      .btn-outline:hover { background: #06b6d4; color: #fff; box-shadow: 0 8px 20px rgba(6,182,212,0.35); }
+
+      /* ---- Placeholder Slide Shimmer ---- */
+      /* Hide the broken placeholder.png visually */
+      .proj-slide img[src*="placeholder"] {
+        opacity: 0 !important;
+      }
+      /* Show an elegant "coming soon" panel instead */
+      .proj-slide:has(img[src*="placeholder"]) {
+        background: linear-gradient(135deg, #0f172a 0%, #1a2d45 50%, #0f1f33 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .proj-slide:has(img[src*="placeholder"])::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          -45deg,
+          rgba(6,182,212,0.03) 0px,
+          rgba(6,182,212,0.03) 1px,
+          transparent 1px,
+          transparent 12px
+        );
+      }
+      .proj-slide:has(img[src*="placeholder"])::after {
+        content: '< / >';
+        font-family: 'Courier New', monospace;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: rgba(6,182,212,0.25);
+        letter-spacing: 0.2em;
+        position: relative;
+        z-index: 1;
+      }
+    </style>
+
     <script>
       document.documentElement.classList.toggle(
         "dark",
@@ -78,7 +409,14 @@
                   <a
                     href="#about"
                     class="text-base text-dark py-2 mx-5 flex group-hover:text-primary dark:text-white"
-                    >About Me</a
+                    >About</a
+                  >
+                </li>
+                <li class="group">
+                  <a
+                    href="#skills"
+                    class="text-base text-dark py-2 mx-5 flex group-hover:text-primary dark:text-white"
+                    >Skills</a
                   >
                 </li>
                 <li class="group">
@@ -118,62 +456,72 @@
     <!-- end Header -->
 
     <!-- Hero Section -->
-    <section id="home" class="pt-36 dark:bg-dark">
+    <section id="home" class="pt-36 dark:bg-dark w-full">
       <div class="container">
         <div class="flex flex-wrap">
           <div class="w-full self-center px-4 lg:w-1/2">
-            <h1 class="text-base font-semibold md:text-xl text-primary">
+            <p class="text-base font-semibold md:text-xl text-primary hero-1">
               Hello 👋,
-            </h1>
-            <h6 class="font-bold text-dark dark:text-white text-4xl">
+            </p>
+            <h1 class="font-bold text-dark dark:text-white text-4xl hero-2">
               I'm RIO,
-              <div class="hidden md:inline">
-                <h6 class="font-bold text-dark dark:text-white text-4xl">
+              <span class="hidden md:inline">
+                <span class="font-bold text-dark dark:text-white text-4xl">
                   <span id="nama" class="text-dark dark:text-white">a</span>
                   <span id="auto-typed" class="text-primary"> </span>
-                </h6>
-              </div>
-            </h6>
+                </span>
+              </span>
+            </h1>
 
-            <div class="block md:hidden">
-              <h6 class="font-bold text-dark dark:text-white text-4xl">
-                <span id="nama" class="text-dark dark:text-white">a</span>
+            <div class="inline md:hidden hero-2">
+              <span class="font-bold text-dark dark:text-white text-4xl">
+                <span id="nama-mobile" class="text-dark dark:text-white">a</span>
                 <span id="auto-type" class="text-primary"> </span>
-              </h6>
+              </span>
             </div>
 
-            <p class="text-secondary font-medium mb-8 leading-relaxed">
+            <p class="text-secondary font-medium mb-8 leading-relaxed hero-3">
               Coding is an art, errors are challenges, and solutions are the
               mission. Embrace the process, solve the problems, and achieve
               <span class="font-bold text-dark dark:text-white">success.</span>
             </p>
 
-            <a
-              href="#contact"
-              class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out"
-              >Contact Me!</a
-            >
+            <div class="flex flex-wrap gap-4 hero-4">
+              <a
+                href="#contact"
+                class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out"
+                >Contact Me!</a
+              >
+              <a
+                href="dist/cv/Rio_CV_ATS.html"
+                target="_blank"
+                class="btn-outline"
+                aria-label="Download CV"
+                >Download CV ↓</a
+              >
+            </div>
           </div>
           <div class="w-full self-end px-4 lg:w-1/2">
-            <div class="relative mt-10 lg:mt-0 right-0 lg:ml-28 xl:scale-110">
+            <div class="relative mt-10 lg:mt-0">
               <img
                 src="dist/img/photos.png"
                 alt="profile picture"
                 class="max-w-full mx-auto relative z-10"
               />
               <span
-                class="absolute bottom-16 ml-10 left-1/2 -translate-x-1/2 scale-100 lg:scale-90 lg:bottom-4 xl:bottom-16 xl:scale-100"
+                class="absolute bottom-16 left-1/2 -translate-x-1/2 scale-100 lg:scale-90 lg:bottom-4 xl:bottom-16 xl:scale-100"
               >
                 <svg
                   width="400"
                   height="400"
                   viewBox="0 0 200 200"
                   xmlns="http://www.w3.org/2000/svg"
+                  class="blob-anim "
                 >
                   <path
                     fill="#06b6d4"
                     d="M30.1,-52.3C39.3,-40.9,47.2,-33.1,50.6,-23.7C54,-14.3,52.9,-3.4,52.3,8.2C51.7,19.9,51.6,32.3,47.5,46.2C43.3,60.2,35.1,75.8,23.6,78.3C12.1,80.8,-2.7,70.2,-19.6,65.7C-36.6,61.3,-55.6,63,-68.1,55.3C-80.5,47.6,-86.3,30.4,-88.8,12.7C-91.4,-4.9,-90.8,-23,-82.9,-36.9C-75.1,-50.8,-60,-60.3,-45,-69.1C-30,-77.8,-15,-85.7,-2.3,-82.1C10.5,-78.6,20.9,-63.7,30.1,-52.3Z"
-                    transform="translate(100 100) scale(1.1)"
+                    transform="translate(100 100) scale(1,1)"
                   />
                 </svg>
               </span>
@@ -185,10 +533,10 @@
     <!-- End Hero Section -->
 
     <!-- About Section -->
-    <section id="about" class="pt-36 pb-36 dark:bg-dark">
+    <section id="about" class="pt-36 pb-36 dark:bg-dark w-full">
       <div class="container">
         <div class="flex flex-wrap">
-          <div class="w-full px-4 mb-10 lg:w-1/2">
+          <div class="w-full px-4 mb-10 lg:w-1/2" data-aos="fade-right">
             <h4 class="font-bold uppercase text-primary text-lg mb-1">
               About Me
             </h4>
@@ -204,7 +552,7 @@
               to develop applications that are useful and impactful.
             </p>
           </div>
-          <div class="w-full px-4 lg:w-1/2">
+          <div class="w-full px-4 lg:w-1/2" data-aos="fade-left">
             <h3
               class="font-semibold text-dark text-2xl mb-1 lg:pt-10 dark:text-white"
             >
@@ -285,8 +633,67 @@
     </section>
     <!-- End About Section -->
 
+    <!-- Skills Section -->
+    <section id="skills" class="pt-36 pb-36 bg-slate-700 dark:bg-slate-300 w-full">
+      <div class="container">
+        <div class="w-full px-4">
+          <div class="max-w-xl mx-auto text-center mb-16" data-aos="fade-up">
+            <h4 class="font-semibold text-lg text-primary mb-2 uppercase">Skills</h4>
+            <h2 class="font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-dark">
+              My Tech Stack
+            </h2>
+            <p class="font-medium text-md text-secondary md:text-lg">
+              A comprehensive overview of the programming languages, frameworks, and specialized tools I leverage to architect and deliver scalable digital solutions.
+            </p>
+          </div>
+        </div>
+        <div class="w-full px-4 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+          <div class="marquee-wrapper">
+            <!-- 1st Marquee Line -->
+            <div class="marquee-content">
+              <div class="skill-item"><i class="devicon-html5-plain colored"></i><span>HTML5</span></div>
+              <div class="skill-item"><i class="devicon-css3-plain colored"></i><span>CSS3</span></div>
+              <div class="skill-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+              <div class="skill-item"><i class="devicon-tailwindcss-original colored"></i><span>Tailwind</span></div>
+              <div class="skill-item"><i class="devicon-react-original colored"></i><span>React</span></div>
+              <div class="skill-item"><i class="devicon-nextjs-plain dark:invert"></i><span>Next.js</span></div>
+              <div class="skill-item"><i class="devicon-laravel-plain colored"></i><span>Laravel</span></div>
+              <div class="skill-item"><i class="devicon-bootstrap-plain colored"></i><span>Bootstrap</span></div>
+              <div class="skill-item"><i class="devicon-python-plain colored"></i><span>Python</span></div>
+              <div class="skill-item"><i class="devicon-java-plain colored"></i><span>Java</span></div>
+              <div class="skill-item"><i class="devicon-android-plain colored"></i><span>Android</span></div>
+              <div class="skill-item"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+              <div class="skill-item"><i class="devicon-firebase-plain colored"></i><span>FIREBASE</span></div>
+              <div class="skill-item"><i class="devicon-github-original dark:invert"></i><span>GitHub</span></div>
+            </div>
+            <!-- 2nd Marquee Line (Duplicate for seamless loop) -->
+            <div class="marquee-content" aria-hidden="true">
+              <div class="skill-item"><i class="devicon-html5-plain colored"></i><span>HTML5</span></div>
+              <div class="skill-item"><i class="devicon-css3-plain colored"></i><span>CSS3</span></div>
+              <div class="skill-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+              <div class="skill-item"><i class="devicon-tailwindcss-original colored"></i><span>Tailwind</span></div>
+              <div class="skill-item"><i class="devicon-react-original colored"></i><span>React</span></div>
+              <div class="skill-item"><i class="devicon-nextjs-plain dark:invert"></i><span>Next.js</span></div>
+              <div class="skill-item"><i class="devicon-laravel-plain colored"></i><span>Laravel</span></div>
+              <div class="skill-item"><i class="devicon-bootstrap-plain colored"></i><span>Bootstrap</span></div>
+              <div class="skill-item"><i class="devicon-python-plain colored"></i><span>Python</span></div>
+              <div class="skill-item"><i class="devicon-java-plain colored"></i><span>Java</span></div>
+              <div class="skill-item"><i class="devicon-android-plain colored"></i><span>Android</span></div>
+              <div class="skill-item"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+              <div class="skill-item"><i class="devicon-firebase-plain colored"></i><span>FIREBASE</span></div>
+              <div class="skill-item"><i class="devicon-github-original dark:invert"></i><span>GitHub</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Skills Section -->
+
     <!-- Portofolio Section -->
-    <section id="portofolio" class="pt-36 pb-36 bg-slate-100 dark:bg-slate-800">
+    <section
+      id="portofolio"
+      class="pt-36 pb-36 bg-slate-100 dark:bg-slate-800 w-full"
+    >
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
@@ -305,50 +712,344 @@
             </p>
           </div>
         </div>
-        <div
-          class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto"
-        >
-          <div class="mb-12 p-4 md:w-1/2">
-            <div class="rounded-md shadow-md overflow-hidden">
-              <img src="dist/img/portofolio/mid.png" alt="" width="w-full" />
+        <div class="projects-marquee-wrapper" id="projects-marquee-wrapper">
+          <div class="projects-marquee-track" id="projects-marquee-track">
+
+          <!-- Project Card 1: MiDClass -->
+          <div class="project-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="proj-slider" id="slider-1">
+              <div class="proj-slider-track" id="track-1">
+                <div class="proj-slide"><img src="dist/img/portofolio/mid.webp" alt="MiDClass App Screen 1" loading="lazy" /></div>
+              </div>
+              <span class="proj-counter" id="counter-1">1 / 1</span>
+              <button class="proj-arrow prev" onclick="slideProject('slider-1', -1)" aria-label="Previous image">&#8249;</button>
+              <button class="proj-arrow next" onclick="slideProject('slider-1', 1)" aria-label="Next image">&#8250;</button>
+              <div class="proj-dots" id="dots-1">
+                <button class="proj-dot active" onclick="goToSlide('slider-1', 0)"></button>
+              </div>
             </div>
-            <a
-              href="https://github.com/JustRio24/MiDClassApp"
-              target="_blank"
-              class="block font-semibold text-dark text-xl my-3 dark:text-white"
-            >
-              MiDClass App (Learning Management System)
-            </a>
-            <p class="font-medium text-base text-secondary">
-              A mobile application that helps students and lecturers manage
-              academic activities efficiently. It offers features like
-              attendance tracking, class schedules, assignments, an academic
-              calendar, and user profiles—ensuring seamless organization and
-              monitoring of academic tasks.
-            </p>
+            <div class="project-body">
+              <h3 class="project-title">MiDClass App &mdash; Learning Management System</h3>
+              <p class="project-desc">
+                A mobile application that helps students and lecturers manage academic activities efficiently. Features include attendance tracking, class schedules, assignments, an academic calendar, and user profiles.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Android</span>
+                <span class="project-tag">Java</span>
+                <span class="project-tag">Firebase</span>
+                <span class="project-tag">LMS</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/JustRio24/MiDClassApp" target="_blank" rel="noopener" class="proj-btn proj-btn-primary">&#128190; GitHub</a>
+                <a href="#" class="proj-btn proj-btn-outline">&#128279; Live Demo</a>
+              </div>
+            </div>
           </div>
-          <div class="mb-12 p-4 md:w-1/2">
-            <div class="rounded-md shadow-md overflow-hidden">
-              <img
-                src="dist/img/portofolio/smartdrum.png"
-                alt=""
-                width="w-full"
-              />
+
+          <!-- Project Card 2: SmartDrum -->
+          <div class="project-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="proj-slider" id="slider-2">
+              <div class="proj-slider-track" id="track-2">
+                <div class="proj-slide"><img src="dist/img/portofolio/smartdrum.webp" alt="SmartDrum Dashboard" loading="lazy" /></div>
+              </div>
+              <span class="proj-counter" id="counter-2">1 / 1</span>
+              <button class="proj-arrow prev" onclick="slideProject('slider-2', -1)" aria-label="Previous image">&#8249;</button>
+              <button class="proj-arrow next" onclick="slideProject('slider-2', 1)" aria-label="Next image">&#8250;</button>
+              <div class="proj-dots" id="dots-2">
+                <button class="proj-dot active" onclick="goToSlide('slider-2', 0)"></button>
+                <button class="proj-dot" onclick="goToSlide('slider-2', 1)"></button>
+              </div>
             </div>
-            <a
-              href="https://github.com/JustRio24/SmartDrum-v2"
-              target="_blank"
-              class="font-semibold block text-dark text-xl my-3 dark:text-white"
-            >
-              SmartDrum (IoT Dashboard web-based)
-            </a>
-            <p class="font-medium text-base text-secondary">
-              SmartDrum is an IoT-based system designed to monitor and automate
-              mushroom cultivation. It provides real-time tracking of
-              temperature, humidity, and water levels while enabling remote
-              control of the watering system. With SmartDrum, farmers can
-              optimize growing conditions efficiently and ensure better yields.
-            </p>
+            <div class="project-body">
+              <h3 class="project-title">SmartDrum &mdash; IoT Dashboard Web-Based</h3>
+              <p class="project-desc">
+                An IoT-based system to monitor and automate mushroom cultivation. Provides real-time tracking of temperature, humidity, and water levels with remote control of the watering system.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">IoT</span>
+                <span class="project-tag">Arduino</span>
+                <span class="project-tag">Web</span>
+                <span class="project-tag">Real-time</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/JustRio24/SmartDrum-v2" target="_blank" rel="noopener" class="proj-btn proj-btn-primary">&#128190; GitHub</a>
+                <a href="#" class="proj-btn proj-btn-outline">&#128279; Live Demo</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 3: Visit Palembang -->
+          <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="proj-slider" id="slider-3">
+              <div class="proj-slider-track" id="track-3">
+                <div class="proj-slide"><img src="dist/img/portofolio/visit.webp" alt="Visit Palembang Screen" loading="lazy" /></div>
+              </div>
+              <span class="proj-counter" id="counter-3">1 / 1</span>
+              <button class="proj-arrow prev" onclick="slideProject('slider-3', -1)" aria-label="Previous image">&#8249;</button>
+              <button class="proj-arrow next" onclick="slideProject('slider-3', 1)" aria-label="Next image">&#8250;</button>
+              <div class="proj-dots" id="dots-3">
+                <button class="proj-dot active" onclick="goToSlide('slider-3', 0)"></button>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Visit Palembang</h3>
+              <p class="project-desc">
+                A modern, responsive web application to promote the beauty, culture, and tourist attractions of Palembang, Indonesia. Created as part of the Web Design Competition 2025.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">HTML/CSS</span>
+                <span class="project-tag">Web Design</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/JustRio24/Visit-Palembang" target="_blank" rel="noopener" class="proj-btn proj-btn-primary">&#128190; GitHub</a>
+                <a href="https://visit-palembang.vercel.app" target="_blank" rel="noopener" class="proj-btn proj-btn-outline">&#128279; Live Demo</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 4: Project Gobeng -->
+          <div class="project-card" data-aos="fade-up" data-aos-delay="450">
+            <div class="proj-slider" id="slider-4">
+              <div class="proj-slider-track" id="track-4">
+                <div class="proj-slide"><img src="dist/img/portofolio/gobeng.webp" alt="Gobeng Screen" loading="lazy" /></div>
+              </div>
+              <span class="proj-counter" id="counter-4">1 / 1</span>
+              <button class="proj-arrow prev" onclick="slideProject('slider-4', -1)" aria-label="Previous image">&#8249;</button>
+              <button class="proj-arrow next" onclick="slideProject('slider-4', 1)" aria-label="Next image">&#8250;</button>
+              <div class="proj-dots" id="dots-4">
+                <button class="proj-dot active" onclick="goToSlide('slider-4', 0)"></button>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Gobeng App</h3>
+              <p class="project-desc">
+                Gobeng is a modern, responsive web application built with React and Vite, featuring a comprehensive role-based access control system (RBAC).
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">React</span>
+                <span class="project-tag">Vite</span>
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">RBAC</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/JustRio24/Project-Gobeng" target="_blank" rel="noopener" class="proj-btn proj-btn-primary">&#128190; GitHub</a>
+                <a href="https://gobeng.vercel.app/" target="_blank" rel="noopener" class="proj-btn proj-btn-outline">&#128279; Live Demo</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 5: ERP Tempe 3 Puteri -->
+          <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+            <div class="proj-slider" id="slider-5">
+              <div class="proj-slider-track" id="track-5">
+                <div class="proj-slide"><img src="dist/img/portofolio/tempe.webp" alt="ERP Tempe Screen" loading="lazy" /></div>
+              </div>
+              <span class="proj-counter" id="counter-5">1 / 1</span>
+              <button class="proj-arrow prev" onclick="slideProject('slider-5', -1)" aria-label="Previous image">&#8249;</button>
+              <button class="proj-arrow next" onclick="slideProject('slider-5', 1)" aria-label="Next image">&#8250;</button>
+              <div class="proj-dots" id="dots-5">
+                <button class="proj-dot active" onclick="goToSlide('slider-5', 0)"></button>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">ERP Tempe 3 Puteri v2</h3>
+              <p class="project-desc">
+                Sistem ERP khusus untuk UMKM Tempe 3 Puteri. Website ini mengintegrasikan modul Inventori, Produksi, Penjualan (E-commerce), dan Keuangan dalam satu platform.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Laravel</span>
+                <span class="project-tag">Blade</span>
+                <span class="project-tag">PHP</span>
+                <span class="project-tag">ERP</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/JustRio24/Erp-Tempe-v2" target="_blank" rel="noopener" class="proj-btn proj-btn-primary">&#128190; GitHub</a>
+                <a href="#" class="proj-btn proj-btn-outline">&#128279; Live Demo</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 6: Sweetmelt Cookies -->
+          <div class="project-card" data-aos="fade-up" data-aos-delay="750">
+            <div class="proj-slider" id="slider-6">
+              <div class="proj-slider-track" id="track-6">
+                <div class="proj-slide"><img src="dist/img/portofolio/cookies.webp" alt="Sweetmelt Cookies Screen" loading="lazy" /></div>
+              </div>
+              <span class="proj-counter" id="counter-6">1 / 1</span>
+              <button class="proj-arrow prev" onclick="slideProject('slider-6', -1)" aria-label="Previous image">&#8249;</button>
+              <button class="proj-arrow next" onclick="slideProject('slider-6', 1)" aria-label="Next image">&#8250;</button>
+              <div class="proj-dots" id="dots-6">
+                <button class="proj-dot active" onclick="goToSlide('slider-6', 0)"></button>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Sweetmelt Cookies</h3>
+              <p class="project-desc">
+                Sebuah website e-commerce modern yang dirancang untuk menampilkan dan menjual produk kue kering premium kami. Responsif dan interaktif.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">E-commerce</span>
+                <span class="project-tag">Web Design</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/JustRio24/Sweetmelt-Cookies-Website" target="_blank" rel="noopener" class="proj-btn proj-btn-primary">&#128190; GitHub</a>
+                <a href="https://sweet-melt-cookies.vercel.app/" target="_blank" rel="noopener" class="proj-btn proj-btn-outline">&#128279; Live Demo</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 7: RAP Project (KONSTRA) -->
+          <div class="project-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="proj-slider" id="slider-7">
+              <div class="proj-slider-track" id="track-7">
+                <div class="proj-slide"><img src="dist/img/portofolio/konstra.webp" alt="KONSTRA Screen" loading="lazy" /></div>
+              </div>
+              <span class="proj-counter" id="counter-7">1 / 1</span>
+              <button class="proj-arrow prev" onclick="slideProject('slider-7', -1)" aria-label="Previous image">&#8249;</button>
+              <button class="proj-arrow next" onclick="slideProject('slider-7', 1)" aria-label="Next image">&#8250;</button>
+              <div class="proj-dots" id="dots-7">
+                <button class="proj-dot active" onclick="goToSlide('slider-7', 0)"></button>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">KONSTRA (RAP Project)</h3>
+              <p class="project-desc">
+                KONSTRA is a progressive web application (PWA) designed to streamline contractor management, site operations, and project monitoring. Offline-first experience for remote usage.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">PWA</span>
+                <span class="project-tag">Management</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/JustRio24/RAP-Project" target="_blank" rel="noopener" class="proj-btn proj-btn-primary">&#128190; GitHub</a>
+                <a href="https://rap-project-gamma.vercel.app" target="_blank" rel="noopener" class="proj-btn proj-btn-outline">&#128279; Live Demo</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 8: SPECTRA -->
+          <div class="project-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="proj-slider" id="slider-8">
+              <div class="proj-slider-track" id="track-8">
+                <div class="proj-slide"><img src="dist/img/portofolio/satset.webp" alt="SPECTRA Screen" loading="lazy" /></div>
+              </div>
+              <span class="proj-counter" id="counter-8">1 / 1</span>
+              <button class="proj-arrow prev" onclick="slideProject('slider-8', -1)" aria-label="Previous image">&#8249;</button>
+              <button class="proj-arrow next" onclick="slideProject('slider-8', 1)" aria-label="Next image">&#8250;</button>
+              <div class="proj-dots" id="dots-8">
+                <button class="proj-dot active" onclick="goToSlide('slider-8', 0)"></button>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">SPECTRA Corporate Platform</h3>
+              <p class="project-desc">
+                Platform internal resmi PT. SatSet MerahPutih Indonesia. Dirancang untuk mengatur workflow dari hulu ke hilir, mulai dari absensi pekerja lapangan hingga pelaporan progres harian.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Laravel</span>
+                <span class="project-tag">Blade</span>
+                <span class="project-tag">PHP</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/JustRio24/SatsetProject" target="_blank" rel="noopener" class="proj-btn proj-btn-primary">&#128190; GitHub</a>
+                <a href="#" class="proj-btn proj-btn-outline">&#128279; Live Demo</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 9: Payroll System -->
+          <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="proj-slider" id="slider-9">
+              <div class="proj-slider-track" id="track-9">
+                <div class="proj-slide"><img src="dist/img/portofolio/payroll.webp" alt="Payroll Screen" loading="lazy" /></div>
+              </div>
+              <span class="proj-counter" id="counter-9">1 / 1</span>
+              <button class="proj-arrow prev" onclick="slideProject('slider-9', -1)" aria-label="Previous image">&#8249;</button>
+              <button class="proj-arrow next" onclick="slideProject('slider-9', 1)" aria-label="Next image">&#8250;</button>
+              <div class="proj-dots" id="dots-9">
+                <button class="proj-dot active" onclick="goToSlide('slider-9', 0)"></button>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Payroll System HRIS</h3>
+              <p class="project-desc">
+                Sistem manajemen payroll dan absensi (HRIS) komprehensif untuk PT Panca Karya Utama.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">TypeScript</span>
+                <span class="project-tag">HRIS</span>
+                <span class="project-tag">Payroll</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/JustRio24/Payroll-System" target="_blank" rel="noopener" class="proj-btn proj-btn-primary">&#128190; GitHub</a>
+                <a href="#" class="proj-btn proj-btn-outline">&#128279; Live Demo</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 10: SIMAMANG -->
+          <div class="project-card" data-aos="fade-up" data-aos-delay="450">
+            <div class="proj-slider" id="slider-10">
+              <div class="proj-slider-track" id="track-10">
+                <div class="proj-slide"><img src="dist/img/portofolio/simamang.webp" alt="SIMAMANG Screen" loading="lazy" /></div>
+              </div>
+              <span class="proj-counter" id="counter-10">1 / 1</span>
+              <button class="proj-arrow prev" onclick="slideProject('slider-10', -1)" aria-label="Previous image">&#8249;</button>
+              <button class="proj-arrow next" onclick="slideProject('slider-10', 1)" aria-label="Next image">&#8250;</button>
+              <div class="proj-dots" id="dots-10">
+                <button class="proj-dot active" onclick="goToSlide('slider-10', 0)"></button>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">SIMAMANG</h3>
+              <p class="project-desc">
+                Sistem Manajemen Magang. Aplikasi web berbasis Laravel untuk mendigitalisasi proses pengajuan magang mahasiswa di POLSRI.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Laravel</span>
+                <span class="project-tag">PHP</span>
+                <span class="project-tag">Blade</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/JustRio24/SIMAMANG_v2" target="_blank" rel="noopener" class="proj-btn proj-btn-primary">&#128190; GitHub</a>
+                <a href="#" class="proj-btn proj-btn-outline">&#128279; Live Demo</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 11: UMKM Mie Mercon Jawara -->
+          <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+            <div class="proj-slider" id="slider-11">
+              <div class="proj-slider-track" id="track-11">
+                <div class="proj-slide"><img src="dist/img/portofolio/umkm.webp" alt="UMKM Jawara Screen" loading="lazy" /></div>
+              </div>
+              <span class="proj-counter" id="counter-11">1 / 1</span>
+              <button class="proj-arrow prev" onclick="slideProject('slider-11', -1)" aria-label="Previous image">&#8249;</button>
+              <button class="proj-arrow next" onclick="slideProject('slider-11', 1)" aria-label="Next image">&#8250;</button>
+              <div class="proj-dots" id="dots-11">
+                <button class="proj-dot active" onclick="goToSlide('slider-11', 0)"></button>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">UMKM Mie Mercon Jawara</h3>
+              <p class="project-desc">
+                Aplikasi e-commerce modern untuk UMKM "Mie Mercon Jawara" dengan fitur lengkap untuk manajemen produk, pesanan, dan pengalaman berbelanja yang interaktif.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Laravel</span>
+                <span class="project-tag">E-commerce</span>
+                <span class="project-tag">Blade</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/JustRio24/umkm_V1.1.2" target="_blank" rel="noopener" class="proj-btn proj-btn-primary">&#128190; GitHub</a>
+                <a href="#" class="proj-btn proj-btn-outline">&#128279; Live Demo</a>
+              </div>
+            </div>
+          </div>
+
           </div>
         </div>
       </div>
@@ -356,7 +1057,10 @@
     <!-- End Portofolio Section -->
 
     <!-- Client Section -->
-    <section id="client" class="pt-36 pb-32 bg-slate-700 dark:bg-slate-300">
+    <section
+      id="client"
+      class="pt-36 pb-32 bg-slate-700 dark:bg-slate-300 w-full"
+    >
       <div class="container">
         <div class="w-full px-4">
           <div class="mx-auto text-center mb-16">
@@ -392,6 +1096,13 @@
             >
               <img src="dist/img/client/polibatam.svg" alt="polibatam" />
             </a>
+            <a
+              href="https://www.ptba.co.id"
+              target="_blank"
+              class="max-w-[150px] mx-4 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8"
+            >
+              <img src="dist/img/client/ptba.svg" alt="polibatam" />
+            </a>
           </div>
         </div>
       </div>
@@ -399,7 +1110,7 @@
     <!-- End Client Section -->
 
     <!-- Blog Section -->
-    <section id="blog" class="pt-36 pb-32 bg-slate-100 dark:bg-dark">
+    <section id="blog" class="pt-36 pb-32 bg-slate-100 dark:bg-dark w-full">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
@@ -452,8 +1163,9 @@
             >
               <img
                 src="dist/img/blog/flashdisk.webp"
-                alt="Flashdisk"
+                alt="Tips Mengatasi Flashdisk Tak Terbaca"
                 class="w-full"
+                loading="lazy"
               />
               <div class="py-8 px-6">
                 <h3>
@@ -484,8 +1196,9 @@
             >
               <img
                 src="dist/img/blog/vb.webp"
-                alt="Virtualbox"
+                alt="Panduan Install Windows 10 di Virtualbox"
                 class="w-full xl:h-[250px] lg:h-[198px]"
+                loading="lazy"
               />
               <div class="py-8 px-6">
                 <h3>
@@ -516,7 +1229,7 @@
     <!-- End Blog Section -->
 
     <!-- Contact Section -->
-    <section id="contact" class="pt-36 pb-32 dark:bg-slate-800">
+    <section id="contact" class="pt-36 pb-32 dark:bg-slate-800 w-full">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
@@ -545,6 +1258,8 @@
                 type="text"
                 name="name"
                 id="name"
+                placeholder="Your full name"
+                required
                 class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
               />
             </div>
@@ -556,6 +1271,8 @@
                 type="email"
                 name="email"
                 id="email"
+                placeholder="your@email.com"
+                required
                 class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
               />
             </div>
@@ -564,9 +1281,10 @@
                 >Message</label
               >
               <textarea
-                type="text"
                 id="message"
                 name="message"
+                placeholder="Write your message here..."
+                required
                 class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-32"
               ></textarea>
             </div>
@@ -585,7 +1303,7 @@
     <!-- End Contact Section -->
 
     <!-- Footer -->
-    <footer class="bg-dark pt-24 pb-12">
+    <footer class="bg-dark pt-24 pb-12 w-full">
       <div class="container">
         <div class="flex flex-wrap">
           <div class="w-full px-4 mb-12 text-slate-300 font-medium md:w-1/3">
@@ -649,6 +1367,13 @@
               </li>
               <li>
                 <a
+                  href="#skills"
+                  class="inline-block text-base hover:text-primary mb-3"
+                  >Skills</a
+                >
+              </li>
+              <li>
+                <a
                   href="#client"
                   class="inline-block text-base hover:text-primary mb-3"
                   >Client</a
@@ -675,9 +1400,11 @@
           <div class="flex items-center justify-center mb-5">
             <!-- icon ig -->
             <a
-              href="#"
+              href="https://www.instagram.com/justrio.24/"
               target="_blank"
-              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-secondary border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
+              rel="noopener"
+              aria-label="Instagram RIO"
+              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-secondary border-slate-300 hover:border-primary hover:bg-primary hover:text-white transition-colors duration-300"
             >
               <svg
                 role="img"
@@ -697,7 +1424,9 @@
             <a
               href="#"
               target="_blank"
-              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-secondary border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
+              rel="noopener"
+              aria-label="Facebook RIO"
+              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-secondary border-slate-300 hover:border-primary hover:bg-primary hover:text-white transition-colors duration-300"
             >
               <svg
                 role="img"
@@ -715,9 +1444,11 @@
 
             <!-- icon github -->
             <a
-              href="#"
+              href="https://github.com/JustRio24"
               target="_blank"
-              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-secondary border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
+              rel="noopener"
+              aria-label="GitHub JustRio24"
+              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-secondary border-slate-300 hover:border-primary hover:bg-primary hover:text-white transition-colors duration-300"
             >
               <svg
                 role="img"
@@ -735,9 +1466,9 @@
 
             <!-- Gmail Icon -->
             <a
-              href="#"
-              target="_blank"
-              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-secondary border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
+              href="mailto:justrio24@gmail.com"
+              aria-label="Email justrio24@gmail.com"
+              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-secondary border-slate-300 hover:border-primary hover:bg-primary hover:text-white transition-colors duration-300"
             >
               <svg
                 role="img"
@@ -781,20 +1512,27 @@
 
     <script src="dist/js/script.js"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      var typed = new Typed("#auto-type", {
-        strings: ["Programmer", "Web Developer", "Android Developer"],
-        typeSpeed: 100,
-        backSpeed: 100,
-        looped: true,
+      // Typed.js — Desktop
+      var typedDesktop = new Typed("#auto-typed", {
+        strings: ["Programmer", "Web Developer", "Android Developer", "IT Support"],
+        typeSpeed: 80,
+        backSpeed: 60,
+        loop: true,
       });
-    </script>
-    <script>
-      var typed = new Typed("#auto-typed", {
-        strings: ["Programmer", "Web Developer", "Android Developer"],
-        typeSpeed: 100,
-        backSpeed: 100,
-        looped: true,
+      // Typed.js — Mobile
+      var typedMobile = new Typed("#auto-type", {
+        strings: ["Programmer", "Web Developer", "Android Developer", "IT Support"],
+        typeSpeed: 80,
+        backSpeed: 60,
+        loop: true,
+      });
+      // AOS Init
+      AOS.init({
+        duration: 700,
+        once: true,
+        offset: 80,
       });
     </script>
   </body>
